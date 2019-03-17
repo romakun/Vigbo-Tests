@@ -31,6 +31,7 @@ public class CartPage extends BaseForm {
     private Label lblDeliveryMethodUnavailable=new Label(By.xpath("//span[contains(text(),'Выбранный способ доставки в данный момент не доступен')]"),"Error payment method unavailable");
     private Label lblTotalOrderSumChanged=new Label(By.xpath("//span[contains(text(),'Стоимость заказа изменилась')]"),"Error total order sum was changed");
     private Button btnSuccess=new Button(By.xpath("//a[@class='btn btn-success']"),"Sucess button");
+    private  Label lblShopBlockCart=new Label(By.xpath("//div[@class='shop-block-cart']"),"Block shop cart ");
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
@@ -105,6 +106,12 @@ public class CartPage extends BaseForm {
         lblPromoCodeError.waitForIsElementPresent();
         return lblPromoCodeError.isPresent();
     }
+    public void waitUnblockCart() throws InterruptedException {
+        if (lblShopBlockCart.isPresent())
+            Thread.sleep(2000);
+
+    }
+
     public void selectDeliveryMethod(DeliveryMethods deliveryMethodName) throws InterruptedException {
         Button btnDeliveryMethod=new Button(By.xpath(String.format(locDeliveryPaymentMethod,deliveryMethodName)),"Dilivery methods radiobatton");
         btnDeliveryMethod.click();

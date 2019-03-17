@@ -8,6 +8,7 @@ import shopGophotoweb.pages.*;
 import webdriver.BaseTest;
 import webdriver.Browser;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class ST2_002 extends BaseTest{
@@ -68,7 +69,9 @@ public class ST2_002 extends BaseTest{
         logStep(4);
         Browser.getInstance().getDriver().navigate().back();
 
+
         logStep(5);
+        cartPage.waitUnblockCart();
         cartPage.deleteSomeProduct("product1");
         assertTrue(cartPage.isEmptyCartMessageDisplayed());
 
