@@ -1,0 +1,2 @@
+# Vigbo-Tests
+auto tests
