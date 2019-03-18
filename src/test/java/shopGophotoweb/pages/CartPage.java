@@ -32,7 +32,7 @@ public class CartPage extends BaseForm {
     private Label lblTotalOrderSumChanged=new Label(By.xpath("//span[contains(text(),'Стоимость заказа изменилась')]"),"Error total order sum was changed");
     private Button btnSuccess=new Button(By.xpath("//a[@class='btn btn-success']"),"Sucess button");
     private  Label lblShopBlockCart=new Label(By.xpath("//div[@class='shop-block-cart']"),"Block shop cart ");
-    
+
 
     public CartPage(){
         super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
@@ -109,7 +109,7 @@ public class CartPage extends BaseForm {
     }
     public void waitUnblockCart() throws InterruptedException {
         if (lblShopBlockCart.isPresent())
-            Thread.sleep(2000);
+            Thread.sleep(1000);
 
     }
 

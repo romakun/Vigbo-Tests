@@ -54,6 +54,7 @@ public class ST6_001 extends BaseTest {
         logStep(3);
         CartPage cartPage = new CartPage();
         logger.info("Cart page appeared");
+        cartPage.waitUnblockCart();
         cartPage.clickSubmit();
         assertTrue(cartPage.isFormErrorDisplayed());
         logger.info("The order was not completed. Error is displayed.");
