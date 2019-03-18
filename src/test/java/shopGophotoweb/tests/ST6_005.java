@@ -57,6 +57,7 @@ public class ST6_005 extends BaseTest {
         cartPage.fillInFields("test", "test", "tt@tt.tt");
 
         logStep(3);
+        cartPage.waitUnblockCart();
         cartPage.setProductCount("product1","10");
         logger.info("Expected result: total price = 10 300 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());

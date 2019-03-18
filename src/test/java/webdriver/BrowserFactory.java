@@ -40,7 +40,7 @@ public abstract class BrowserFactory {
                     myTestURL = ClassLoader.getSystemResource("chromedriver");
                 }
                 else {
-                    myTestURL = ClassLoader.getSystemResource("chromedriver.exe");
+                    myTestURL = ClassLoader.getSystemResource("chromedriver");
                 }
                 try {
                     myFile = new File(myTestURL.toURI());
