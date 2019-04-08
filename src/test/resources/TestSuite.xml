@@ -10,7 +10,15 @@
 
 
 
-			<class name="shopGophotoweb.tests.ST7_001" />
+			
+			<class name="shopGophotoweb.tests.ST8_001" />
+			<class name="shopGophotoweb.tests.ST8_002" />
+
+
+
+
+
+
 
 
 

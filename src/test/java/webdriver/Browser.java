@@ -1,6 +1,7 @@
 package webdriver;
 
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -129,6 +130,7 @@ public final class Browser {
     /**
      * wait the download page (on Javascript readyState)
      */
+
     public void waitForPageToLoad() {
         // Logger.getInstance().info("waitForPageToLoad started");
         WebDriverWait wait = new WebDriverWait(driver, Long.parseLong(getTimeoutForPageLoad()));
