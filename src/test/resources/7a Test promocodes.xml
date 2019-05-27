@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test with payments or delivery methods">
+
+
+
+    <test name="ST7a_001">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_001" />
+        </classes>
+    </test>
+    <test name="ST7a_002">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_002" />
+        </classes>
+    </test>
+    <test name="ST7a_003">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_003" />
+        </classes>
+    </test>
+    <test name="ST7a_004">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_004" />
+        </classes>
+    </test>
+    <test name="ST7a_005">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_005" />
+        </classes>
+    </test>
+    <test name="ST7a_006">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_006" />
+        </classes>
+    </test>
+    <test name="ST7a_007">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_007" />
+        </classes>
+    </test>
+    <test name="ST7a_008">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_008" />
+        </classes>
+    </test>
+    <test name="ST7a_009">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_009" />
+        </classes>
+    </test>
+    <test name="ST7a_010">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_010" />
+        </classes>
+    </test>
+    <test name="ST7a_011">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_011" />
+        </classes>
+    </test>
+    <test name="ST7a_012">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_012" />
+        </classes>
+    </test>
+    <test name="ST7a_013">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_013" />
+        </classes>
+    </test>
+    <test name="ST7a_014">
+        <classes>
+            <class name="shopGophotoweb.tests.promoCodes.ST7a_014" />
+        </classes>
+    </test>
+
+
+</suite>
