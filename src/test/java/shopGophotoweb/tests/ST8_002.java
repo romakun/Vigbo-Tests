@@ -59,7 +59,7 @@ public class ST8_002 extends BaseTest {
         productPage.addProductToCart();
         assertTrue(productPage.isLblUnselectedItemErrorDisplayed());
 
-        logStep(3);
+      /*  logStep(3);
         productPage.setSelectValueLocator("Белый");
         assertEquals(productPage.getLblPrice(),"1 000 pуб.");
 
@@ -130,6 +130,6 @@ public class ST8_002 extends BaseTest {
         Utilites.goToSidebarItem(Utilites.SidebarItems.Продажи);
         Utilites.goToSidebarItem(Utilites.SidebarItems.Заказы);
         OrdersPage ordersPage=new OrdersPage();
-        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"7 585.10 pуб.");
+        assertEquals(ordersPage.getOrderTotalPrice(orderNumber),"7 585.10 pуб."); */
     }
 }
