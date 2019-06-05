@@ -62,7 +62,7 @@ public class ST8_001 extends BaseTest {
         productPage.setSelectValueLocator("Синий");
         assertEquals(productPage.getLblPrice(),"1 000 pуб.");
 
-        logStep(4);
+     /*   logStep(4);
         productPage.addProductToCart();
 
         logStep(5);
@@ -82,7 +82,7 @@ public class ST8_001 extends BaseTest {
         assertEquals(productPage.getLblPrice(),"0 pуб.");
 
         logStep(9);
-        productPage.addProductToCart();
+        productPage.addProductToCart(); */
 
 
         logStep(10);
