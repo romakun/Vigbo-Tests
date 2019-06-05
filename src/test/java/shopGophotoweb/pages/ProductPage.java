@@ -21,7 +21,9 @@ public class ProductPage extends BaseForm {
     private  Label lblUnselectedItemError = new Label(By.xpath("//div[@class='error'][@data-prefix='Выберите']"),"Unselected item error");
     //private  Label lblUnselectedItemError=new Label(By.xpath("//div[@class='error'][@data-prefix='Выберите']"),"Unselected item error");
     //private  ElemetsList listOptions=new ElemetsList(By.xpath("//select[@class=\"options\"]"),"List options");
-  //  private String selectValueLocator = "//div[contains(@class,'selectize-control')]";
+    //private String selectValueLocator = "//div[contains(@class, 'selectize-control')]";
+    private String selectValueLocator = "//div[contains(@class,'selectize-dropdown-content')]/div[contains(text(), '%s')]/../../../..";
+
     private String selectValueLocator2 = "//div[contains(@class,'selectize-dropdown-content')]/div[contains(text(), '%s')][not(@disabled)]";
     //"//select[@class='options']/option[.='%s'][not(@disabled)]";
     private Button btnGoToCatalogBreadecrumbs = new Button(By.xpath("//nav[contains(@class, 'autotest--shop-bread-crumbs')]/a[contains(text(),'магазин')]"),"shop bread crumbs");
@@ -70,26 +72,35 @@ public class ProductPage extends BaseForm {
         return lblUnselectedItemError.isPresent();
     }
 
-   /* public void setSelectValueLocator(String value){
+  /*  public void setSelectValueLocator(String value){
         Label selectValue = new Label(By.xpath(String.format(selectValueLocator,value)),"Value of select");
         selectValue.waitForIsElementPresent();
         selectValue.click();
     } */
 
-    public void setSelectValueLocator(String selectName) throws InterruptedException{
-       // Label selectos = new Label(By.xpath(selectValueLocator), "select dropdown");
-       // selectos.click();
-        Label selectos2 = new Label(By.xpath(String.format(selectValueLocator2, selectName)), "select select");
-        selectos2.click();
-        Thread.sleep(2000);
+     public void setSelectValueLocator(String selectName) {
+          Label selectos = new Label(By.xpath(String.format(selectValueLocator, selectName)), "open dropdown");
+          selectos.click();
+          Label selectos2 = new Label(By.xpath(String.format(selectValueLocator2, selectName)), "select select");
+          selectos2.click();
 
-    }
-/*
-    public boolean isSelectOptionPresent(String optonValue){
-        Label selectValue =new Label(By.xpath(String.format(selectValueLocator,optonValue)),"Value of select");
-        return selectValue.isPresent();
 
-    }*/
+      }
+
+      public boolean isSelectOptionPresent(String optonValue) {
+          Label selectValue = new Label(By.xpath(String.format(selectValueLocator,optonValue)),"open dropdown");
+          selectValue.click();
+          Label selectValue2 = new Label(By.xpath(String.format(selectValueLocator2,optonValue)),"value is present");
+          return selectValue2.isPresent();
+
+      }
+
+      public void closeParams(String paramNmae) {
+          Label selectValue = new Label(By.xpath(String.format(selectValueLocator,paramNmae)),"close dropdown");
+          selectValue.click();
+
+
+      }
     public void goToCatalogByBreadecrumbs(){
         btnGoToCatalogBreadecrumbs.waitForIsElementPresent();
         btnGoToCatalogBreadecrumbs.click();
