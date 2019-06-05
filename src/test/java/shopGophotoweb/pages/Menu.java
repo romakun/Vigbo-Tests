@@ -2,6 +2,7 @@ package shopGophotoweb.pages;
 
 import org.openqa.selenium.By;
 import webdriver.elements.Button;
+import java.io.IOException;
 
 
 public class Menu {
@@ -13,9 +14,11 @@ public class Menu {
         btnShop.click();
     }
 
-    public static void goToCart()
-    {
+    public static void goToCart() throws InterruptedException {
         btnGoToCart.click();
+        CartPage cartPage = new CartPage();
+        cartPage.waitUnblockCart();
+
     }
 
 }
