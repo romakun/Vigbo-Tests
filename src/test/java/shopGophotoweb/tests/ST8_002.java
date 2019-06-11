@@ -78,7 +78,9 @@ public class ST8_002 extends BaseTest {
 
         logStep(7);
         assertTrue(productPage.isSelectOptionPresent("Белый"));
+        productPage.closeParams("Белый");
         assertTrue(productPage.isSelectOptionPresent("Красный"));
+        productPage.closeParams("Красный");
 
         logStep(8);
         productPage.setSelectValueLocator("Красный");
@@ -98,8 +100,11 @@ public class ST8_002 extends BaseTest {
 
         logStep(12);
         assertTrue(productPage.isSelectOptionPresent("Белый"));
+        productPage.closeParams("Белый");
         assertTrue(productPage.isSelectOptionPresent("Красный"));
+        productPage.closeParams("Красный");
         assertTrue(productPage.isSelectOptionPresent("Желтый"));
+        productPage.closeParams("Желтый");
 
         logStep(13);
         Menu.goToCart();
