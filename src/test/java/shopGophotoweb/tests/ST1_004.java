@@ -66,6 +66,7 @@ public class ST1_004 extends BaseTest {
         logStep(3);
         CartPage cartPage=new CartPage();
         cartPage.setProductCount("product1","1001");
+        cartPage.waitUnblockCart();
         cartPage.clickSubmit();
         assertTrue(cartPage.isSkuQanityErrorDisplayed());
         assertTrue(cartPage.isTextBoxSkuCountErrorDisplayed());
@@ -73,6 +74,7 @@ public class ST1_004 extends BaseTest {
 
         logStep(4);
         cartPage.setProductCount("product1","0");
+        cartPage.waitUnblockCart();
         cartPage.clickSubmit();
         logger.info("Expected result: total price = 1 000 pуб.");
         logger.info("Actual result: total price = "+cartPage.getTotalPrice());

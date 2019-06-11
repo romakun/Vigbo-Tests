@@ -3,6 +3,7 @@ package shopGophotoweb.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import webdriver.BaseForm;
 import webdriver.elements.Button;
@@ -10,39 +11,47 @@ import webdriver.elements.Label;
 import webdriver.elements.TextBox;
 
 import java.io.IOException;
+import java.lang.Throwable;
+
 
 public class CartPage extends BaseForm {
     private TextBox txbName = new TextBox(By.xpath("//label[contains(text(),'Имя')]/preceding-sibling::input"), "Name in order form");
     private TextBox txbLastame  = new TextBox(By.xpath("//label[contains(text(),'Фамилия')]/preceding-sibling::input"), "Lastname in order form");
     private TextBox txbEmail = new TextBox(By.xpath("//label[contains(text(),'Email')]/preceding-sibling::input"), "Email in order form");
-    private Button btnSubmit = new Button(By.name("data[btn-submit]"), "Submit button");
-   // private Label lblSkuQanityError=new Label(By.xpath(".//*[@id='shop-sku-quantity-error']"),"skuQanityError");
-    private Label lblSkuQanityError=new Label(By.xpath(".//div[@class='box-control__count js--product-count error-label']"),"skuQanityError");
-    //  private Label lblTextBoxSkuCountError=new Label(By.xpath("//input[contains(@class,'textbox skuCount error-field')]"));
-    private Label lblTextBoxSkuCountError=new Label(By.xpath("//input[contains(@class,'box-number__input js--box-number__input textbox skuCount error-field')]"));
-    private Label totalPriceSum=new Label(By.xpath(".//*[@id='totalPriceWithDelivery']"),"totalPriceSum");
+    private Button btnSubmit = new Button(By.xpath("//*[contains(@class, 'autotest--form-btn-submit')]"), "Submit button");
+    //  = new Button(By.name("data[btn-submit]"), "Submit button");
+    private Label lblSkuQanityError = new Label(By.xpath(".//*[contains(@class,'autotest--product-count error-label')]"),"skuQanityError");
+            // = new Label(By.xpath(".//div[@class='box-control__count js--product-count error-label']"),"skuQanityError");
+    private Label lblTextBoxSkuCountError = new Label(By.xpath("//input[contains(@class,'autotest--sku-count error-field')]"));
+                    // = new Label(By.xpath("//input[contains(@class,'box-number__input js--box-number__input textbox skuCount error-field')]"));
+    private Label totalPriceSum = new Label(By.xpath(".//*[contains(@class, 'autotest--total-price-with-delivery')]"),"totalPriceSum");
+                            //= new Label(By.xpath(".//*[@id='totalPriceWithDelivery']"),"totalPriceSum");
     private  Label formError=new Label(By.xpath("//div[contains(@class,\"error-input\")]"),"cart form error");
-    private String locDeleteSomeProduct="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-close')]/a";
-    private String locCountSomeProduct="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-center js--shop-cart skuCountCell')]/div/div/input";
+    private String locDeleteSomeProduct = "//span[contains(text(),'%s')]/../../../../div/a[contains(@class,'autotest--shopcart-delete-product')]";
+            //="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-close')]/a";
+    private String locCountSomeProduct = "//span[contains(text(),'%s')]/../../../../div/div/div/input[contains(@class,'autotest--sku-count')]";
+                    //="//a[contains(text(),'%s')]/../../td[contains(@class,'shop-cart-tbl-center js--shop-cart skuCountCell')]/div/div/input";
     private Label lblPaymentError=new Label(By.id("shop-payment-error"),"Payment error");
     private Label lblDeliveryError=new Label(By.id("shop-delivery-error"),"Delivery error");
     private  Label lblPromoCodeError=new Label(By.id("shop-promo-msg"),"Promo code error ");
     private Label lblPromocode=new Label(By.id("shop-promo-link"),"Promo code link");
     private TextBox txbPromocode=new TextBox(By.id("shop-promo-code"),"Promo code textbox");
     private Button btnApplyPromocode=new Button(By.id("shop-apply-promo"),"Apply promo code button");
-    private String locDeliveryPaymentMethod="//label[contains(text(),'%s')]/preceding-sibling::input";
-    private  Label lblEmptyCart=new Label(By.xpath("//td[contains(text(),'Корзина пуста')]"),"Cart is empty message");
+    private String locDeliveryPaymentMethod="//div[contains(text(),'%s')]";
+    private  Label lblEmptyCart = new Label(By.xpath("//*[contains(@class, 'autotest--shopcart-empty-cart')]"),"Cart is empty message");
+            //=new Label(By.xpath("//td[contains(text(),'Корзина пуста')]"),"Cart is empty message");
     public enum DeliveryMethods{Курьер,Самовывоз,Почта}
     public enum PaymentMethods{МОЙ_ВИД_ОПЛАТЫ_С_КОМИССИЕЙ_1,ЧЕРЕЗ_СИСТЕМУ_ЯНДЕКС_ДЕНЬГИ_С_КОММИСИЕЙ_3}
     private Label lblPaymentMethodUnavailable=new Label(By.xpath("//span[contains(text(),'Выбранный метод оплаты в данный момент не доступен')]"),"Error payment method unavailable");
     private Label lblDeliveryMethodUnavailable=new Label(By.xpath("//span[contains(text(),'Выбранный способ доставки в данный момент не доступен')]"),"Error payment method unavailable");
     private Label lblTotalOrderSumChanged=new Label(By.xpath("//span[contains(text(),'Стоимость заказа изменилась')]"),"Error total order sum was changed");
-    private Button btnSuccess=new Button(By.xpath("//a[@class='btn btn-success']"),"Sucess button");
+    private Button btnSuccess = new Button(By.xpath("//a[contains(@class,'autotest--shopcart-btn-success')]"),"Sucess button");
+            //=new Button(By.xpath("//a[@class='btn btn-success']"),"Sucess button");
     private  Label lblShopBlockCart=new Label(By.xpath("//div[@class='shop-block-cart']"),"Block shop cart ");
 
 
     public CartPage(){
-        super(By.xpath("//div[contains(@class,'shop-cart-title')]"),"Cart Page");
+        super(By.xpath("//div[contains(@class,'md-shopcart__title')]"),"Cart Page");
     }
 
 
@@ -118,7 +127,7 @@ public class CartPage extends BaseForm {
         return lblPromoCodeError.isPresent();
     }
     public void waitUnblockCart() throws InterruptedException {
-       if (lblShopBlockCart.isPresent())
+        if (lblShopBlockCart.isPresent())
             Thread.sleep(1000);
 
     }
