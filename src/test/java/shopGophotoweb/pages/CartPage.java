@@ -22,7 +22,7 @@ public class CartPage extends BaseForm {
     //  = new Button(By.name("data[btn-submit]"), "Submit button");
     private Label lblSkuQanityError = new Label(By.xpath(".//*[contains(@class,'autotest--product-count error-label')]"),"skuQanityError");
             // = new Label(By.xpath(".//div[@class='box-control__count js--product-count error-label']"),"skuQanityError");
-    private Label lblTextBoxSkuCountError = new Label(By.xpath("//input[contains(@class,'autotest--sku-count error-field')]"));
+    private Label lblTextBoxSkuCountError = new Label(By.xpath("//input[contains(@class,'autotest--sku-count form__field form__field_bg form__field_bdc form__field_c form__field_ff form__field_fs form__field_fw form__field_ls error-field')]"));
                     // = new Label(By.xpath("//input[contains(@class,'box-number__input js--box-number__input textbox skuCount error-field')]"));
     private Label totalPriceSum = new Label(By.xpath(".//*[contains(@class, 'autotest--total-price-with-delivery')]"),"totalPriceSum");
                             //= new Label(By.xpath(".//*[@id='totalPriceWithDelivery']"),"totalPriceSum");
@@ -128,7 +128,7 @@ public class CartPage extends BaseForm {
     }
     public void waitUnblockCart() throws InterruptedException {
         if (lblShopBlockCart.isPresent())
-            Thread.sleep(1000);
+            Thread.sleep(1500);
 
     }
 
