@@ -10,8 +10,8 @@ import webdriver.elements.*;
 public class ProductPage extends BaseForm {
     private Button btnAddToCart = new Button(By.xpath("//a[contains(@class,'autotest--addtocart')]"),"addToCartButton");
     //new Button(By.id("skuadd"), "addToCartButton");
-    private  Button btnOutOfStock = new Button(By.xpath("//a[contains(text(),'Нет в наличии')]"),"Out of stock button");
-    private  Button btnPreOrder = new Button(By.xpath("//a[contains(text(),\"Оформить заказ\")]"),"PreOrder button");
+    private  Button btnOutOfStock = new Button(By.xpath("//span[contains(text(),'Нет в наличии')]"),"Out of stock button");
+    private  Button btnPreOrder = new Button(By.xpath("//span[contains(text(),\"Оформить заказ\")]"),"PreOrder button");
     private Label lblDiscount = new Label(By.xpath("//span[contains(@class,'autotest--product-price-discount')]"),"Discount label");
     //new Label(By.xpath("//span[@class='product-price-discount']"),"Discount label");
     private  Label lblOldPrice = new Label(By.xpath("//div[contains(@class,'autotest--price')]/span[contains(@class,'autotest--product-price-old')]"), "Old price");
