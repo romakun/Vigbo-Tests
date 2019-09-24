@@ -74,8 +74,9 @@ public class CartPage extends BaseForm {
         txbEmail.setText(emailText);
 
     }
-    public void clickSubmit()
-    {
+    public void clickSubmit() throws InterruptedException {
+        if (lblShopBlockCart.isPresent())
+            Thread.sleep(1000);
         btnSubmit.waitForIsElementPresent();
         btnSubmit.click();
 
@@ -128,7 +129,7 @@ public class CartPage extends BaseForm {
     }
     public void waitUnblockCart() throws InterruptedException {
         if (lblShopBlockCart.isPresent())
-            Thread.sleep(1500);
+            Thread.sleep(1000);
 
     }
 
